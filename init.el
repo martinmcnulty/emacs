@@ -138,9 +138,11 @@
  )
 
 ;; Install ENSIME
+;; pin to melpa-stable for stable version, or melpa for dev/unstable version
+;; unstable currently necessary for Scala 2.12
 (use-package ensime
   :ensure t
-  :pin melpa-stable)
+  :pin melpa)
 
 ;; Make sure multi-term terminals are login shells because then they have the normal $PATH, etc
 (use-package multi-term)
