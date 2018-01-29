@@ -80,6 +80,7 @@
    (quote
     (popup-imenu yaml-mode zoom-frm markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme ensime use-package)))
  '(pe/omit-gitignore t)
+ '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$")
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(term-bind-key-alist
