@@ -7,7 +7,9 @@
  scroll-error-top-bottom t
  show-paren-delay 0.5
  use-package-always-ensure t
- sentence-end-double-space nil)
+ sentence-end-double-space nil
+ ensime-startup-snapshot-notification nil
+ ensime-startup-notification nil)
 
 ;; Hopefully this will mean ENSIME can find sbt (needs to happen before we load ENSIME)
 (add-to-list 'exec-path "/usr/local/bin")
