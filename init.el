@@ -223,4 +223,9 @@
 ;; Remove trailing whitespace on save
 (add-hook 'scala-mode-hook
           (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+
+;; Make M-f and M-b camel-case aware
+(add-hook 'scala-mode-hook 'subword-mode)
+
+
 (put 'downcase-region 'disabled nil)
