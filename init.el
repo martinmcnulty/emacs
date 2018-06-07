@@ -79,7 +79,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (csv-mode popup-imenu yaml-mode zoom-frm markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme ensime use-package)))
+    (expand-region csv-mode popup-imenu yaml-mode zoom-frm markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme ensime use-package)))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
@@ -229,8 +229,8 @@
 
 ;; Enable zooming
 (use-package zoom-frm)
-(global-set-key (kbd "C-=") 'zoom-frm-in)
-(global-set-key (kbd "C--") 'zoom-frm-out)
+(global-set-key (kbd "C-x =") 'zoom-frm-in)
+(global-set-key (kbd "C-x -") 'zoom-frm-out)
 
 ;; Use yaml-mode
 (use-package yaml-mode)
@@ -242,5 +242,12 @@
 ;; Make M-f and M-b camel-case aware
 (add-hook 'scala-mode-hook 'subword-mode)
 
+;; Make ? part of a word (to fix M-f over ??? identifiers)
+;;(modify-syntax-entry ?\? "w" scala-mode-syntax-table)
 
 (put 'downcase-region 'disabled nil)
+
+(use-package expand-region
+  :commands 'er/expand-region
+  :bind ("C-=" . er/expand-region))
+(require 'ensime-expand-region)
