@@ -205,6 +205,20 @@
 (use-package projectile)
 (projectile-global-mode)
 
+;; Get better filename matching than Projectile's default (ido)
+;;(use-package grizzl
+;;  :ensure t
+;;  :pin melpa)
+;;(setq projectile-completion-system 'grizzl)
+;;(use-package flx-ido)
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
+
 ;; Try out markdown-mode
 (use-package markdown-mode)
 
