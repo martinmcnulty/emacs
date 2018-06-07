@@ -75,7 +75,7 @@
      ("#F309DF" . 85)
      ("#3C3D37" . 100))))
  '(js-indent-level 2)
- '(magit-diff-section-arguments (quote ("--ignore-space-change" "--no-ext-diff")))
+ '(magit-diff-section-arguments (quote ("--no-ext-diff")))
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
