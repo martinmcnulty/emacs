@@ -56,10 +56,13 @@
  '(custom-safe-themes
    (quote
     ("69831e572dc46ced47c5309bff8fc2f4a9e237e2bad2c76f313da814a4628694" default)))
+ '(elfeed-feeds
+   (quote
+    ("https://danluu.com/atom.xml" "https://daringfireball.net/feeds/main" "https://www.jwz.org/blog/feed/")))
  '(fci-rule-color "#3C3D37")
  '(grep-find-ignored-directories
    (quote
-    ("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "target" ".ensime_cache" ".ensime_snapshot" "node_modules" "dist" ".sass-cache")))
+    ("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "target" ".ensime_cache" ".ensime_snapshot" "node_modules" "dist" ".sass-cache" "build")))
  '(grep-find-ignored-files
    (quote
     (".#*" "*.o" "*~" "*.bin" "*.lbin" "*.so" "*.a" "*.ln" "*.blg" "*.bbl" "*.elc" "*.lof" "*.glo" "*.idx" "*.lot" "*.fmt" "*.tfm" "*.class" "*.fas" "*.lib" "*.mem" "*.x86f" "*.sparcf" "*.dfsl" "*.pfsl" "*.d64fsl" "*.p64fsl" "*.lx64fsl" "*.lx32fsl" "*.dx64fsl" "*.dx32fsl" "*.fx64fsl" "*.fx32fsl" "*.sx64fsl" "*.sx32fsl" "*.wx64fsl" "*.wx32fsl" "*.fasl" "*.ufsl" "*.fsl" "*.dxl" "*.lo" "*.la" "*.gmo" "*.mo" "*.toc" "*.aux" "*.cp" "*.fn" "*.ky" "*.pg" "*.tp" "*.vr" "*.cps" "*.fns" "*.kys" "*.pgs" "*.tps" "*.vrs" "*.pyc" "*.pyo" ".ensime" "*.min.css" "*.min.css.map" "*.bundle.js")))
@@ -79,7 +82,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (expand-region csv-mode popup-imenu yaml-mode zoom-frm markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme ensime use-package)))
+    (elfeed expand-region csv-mode popup-imenu yaml-mode zoom-frm markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme ensime use-package)))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
