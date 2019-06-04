@@ -13,9 +13,9 @@
  scroll-error-top-bottom t
  show-paren-delay 0.5
  use-package-always-ensure t
+ use-package-always-defer t
  sentence-end-double-space nil
- ensime-startup-snapshot-notification nil
- ensime-startup-notification nil)
+)
 
 ;; Hopefully this will mean ENSIME can find sbt (needs to happen before we load ENSIME)
 (add-to-list 'exec-path "/usr/local/bin")
@@ -68,7 +68,7 @@
  '(fci-rule-color "#3C3D37")
  '(grep-find-ignored-directories
    (quote
-    ("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "target" ".ensime_cache" ".ensime_snapshot" "node_modules" "dist" ".sass-cache" "build")))
+    ("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "target" ".ensime_cache" ".ensime_snapshot" "node_modules" "dist" ".sass-cache" "build" ".terraform" ".metals" ".bloop")))
  '(grep-find-ignored-files
    (quote
     (".#*" "*.o" "*~" "*.bin" "*.lbin" "*.so" "*.a" "*.ln" "*.blg" "*.bbl" "*.elc" "*.lof" "*.glo" "*.idx" "*.lot" "*.fmt" "*.tfm" "*.class" "*.fas" "*.lib" "*.mem" "*.x86f" "*.sparcf" "*.dfsl" "*.pfsl" "*.d64fsl" "*.p64fsl" "*.lx64fsl" "*.lx32fsl" "*.dx64fsl" "*.dx32fsl" "*.fx64fsl" "*.fx32fsl" "*.sx64fsl" "*.sx32fsl" "*.wx64fsl" "*.wx32fsl" "*.fasl" "*.ufsl" "*.fsl" "*.dxl" "*.lo" "*.la" "*.gmo" "*.mo" "*.toc" "*.aux" "*.cp" "*.fn" "*.ky" "*.pg" "*.tp" "*.vr" "*.cps" "*.fns" "*.kys" "*.pgs" "*.tps" "*.vrs" "*.pyc" "*.pyo" ".ensime" "*.min.css" "*.min.css.map" "*.bundle.js")))
@@ -88,7 +88,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (elfeed expand-region csv-mode popup-imenu yaml-mode zoom-frm markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme ensime use-package)))
+    (terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode zoom-frm markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package)))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
@@ -147,13 +147,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; Install ENSIME
-;; pin to melpa-stable for stable version, or melpa for dev/unstable version
-;; unstable currently necessary for Scala 2.12
-(use-package ensime
-  :ensure t
-  :pin melpa)
-
 ;; Make sure multi-term terminals are login shells because then they have the normal $PATH, etc
 (use-package multi-term)
 (setq multi-term-program-switches "--login")
@@ -209,10 +202,13 @@
 ;; Helpful error navigation
 (global-set-key (kbd "s-,") 'previous-error)
 (global-set-key (kbd "s-.") 'next-error)
+(global-set-key (kbd "s-n") 'flycheck-previous-error)
+(global-set-key (kbd "s-m") 'flycheck-next-error)
 
 ;; Turn on projectile everywhere
 (use-package projectile)
-(projectile-global-mode)
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; Get better filename matching than Projectile's default (ido)
 ;;(use-package grizzl
@@ -244,6 +240,9 @@
 ;; Use yaml-mode
 (use-package yaml-mode)
 
+;; Use scala-mode
+(use-package scala-mode)
+
 ;; Remove trailing whitespace on save
 (add-hook 'scala-mode-hook
           (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
@@ -259,7 +258,6 @@
 (use-package expand-region
   :commands 'er/expand-region
   :bind ("C-=" . er/expand-region))
-(require 'ensime-expand-region)
 
 (defun toggle-window-split ()
   "Toggle between horizontal and vertical window splits."
@@ -288,6 +286,47 @@
       (if this-win-2nd (other-window 1))))))
 
 (global-set-key (kbd "C-x |") 'toggle-window-split)
+
+;;;; Install lsp-scala for metals
+
+(use-package sbt-mode
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map))
+
+;; Enable nice rendering of diagnostics like compile errors.
+(use-package flycheck
+  :init (global-flycheck-mode))
+
+(use-package lsp-mode
+ :pin melpa
+ :init (setq lsp-prefer-flymake nil))
+
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode))
+
+(use-package lsp-scala
+  :after scala-mode
+  :demand t
+  ;; Optional - enable lsp-scala automatically in scala files
+  :hook (scala-mode . lsp))
+
+(setq-default fill-column 127)
+
+(use-package fill-column-indicator
+  :after scala-mode
+  :hook (scala-mode . fci-mode))
+
+;;;; End metals/lsp-scala section
+
+(use-package elfeed)
+
+(use-package terraform-mode)
 
 (provide 'init)
 ;;; init.el ends here
