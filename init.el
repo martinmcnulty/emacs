@@ -1,3 +1,9 @@
+;;; init.el --- Martin's init file
+
+;;; Commentary:
+
+;;; Code:
+
 ;; global variables
 (setq
  inhibit-startup-screen t
@@ -282,3 +288,6 @@
       (if this-win-2nd (other-window 1))))))
 
 (global-set-key (kbd "C-x |") 'toggle-window-split)
+
+(provide 'init)
+;;; init.el ends here
