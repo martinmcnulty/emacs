@@ -64,7 +64,7 @@
     ("69831e572dc46ced47c5309bff8fc2f4a9e237e2bad2c76f313da814a4628694" default)))
  '(elfeed-feeds
    (quote
-    ("https://danluu.com/atom.xml" "https://daringfireball.net/feeds/main" "https://www.jwz.org/blog/feed/")))
+    ("https://eev.ee/feeds/blog.atom.xml" "https://danluu.com/atom.xml" "https://daringfireball.net/feeds/main" "https://www.jwz.org/blog/feed/")))
  '(fci-rule-color "#3C3D37")
  '(grep-find-ignored-directories
    (quote
