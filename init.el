@@ -201,7 +201,7 @@
 ;; Make it easy to switch windows
 (global-set-key (kbd "s-]") 'other-window)
 (defun mhm-prev-window ()
-  "Call other-window with negative arg to move in opposite direction"
+  "Call 'other-window' with negative arg to move in opposite direction."
   (interactive)
   (other-window -1))
 (global-set-key (kbd "s-[") 'mhm-prev-window)
