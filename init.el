@@ -261,8 +261,8 @@
   :bind ("C-=" . er/expand-region))
 (require 'ensime-expand-region)
 
-;; Add command for toggling between horizontal and vertical window splits
 (defun toggle-window-split ()
+  "Toggle between horizontal and vertical window splits."
   (interactive)
   (if (= (count-windows) 2)
       (let* ((this-win-buffer (window-buffer))
