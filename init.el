@@ -88,7 +88,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode zoom-frm markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package)))
+    (terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package)))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
@@ -231,11 +231,6 @@
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
 ;; Allow hash to be entered in isearch
 (define-key isearch-mode-map (kbd "M-3") '(lambda () (interactive) (isearch-process-search-char ?\#)))
-
-;; Enable zooming
-(use-package zoom-frm)
-(global-set-key (kbd "C-x =") 'zoom-frm-in)
-(global-set-key (kbd "C-x -") 'zoom-frm-out)
 
 ;; Use yaml-mode
 (use-package yaml-mode)
