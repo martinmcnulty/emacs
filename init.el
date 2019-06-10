@@ -257,6 +257,15 @@
   :commands 'er/expand-region
   :bind ("C-=" . er/expand-region))
 
+(defun sbt-compile ()
+  "Run test:compile in active sbt buffer."
+  (interactive)
+  (sbt-clear)
+  (sbt-command "test:compile"))
+
+(global-set-key (kbd "C-c C-b c") 'sbt-compile)
+(global-set-key (kbd "C-c C-b s") 'sbt-switch-to-active-sbt-buffer)
+
 (defun toggle-window-split ()
   "Toggle between horizontal and vertical window splits."
   (interactive)
