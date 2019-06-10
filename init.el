@@ -205,8 +205,8 @@
 ;; Helpful error navigation
 (global-set-key (kbd "s-,") 'previous-error)
 (global-set-key (kbd "s-.") 'next-error)
-(global-set-key (kbd "s-n") 'flycheck-previous-error)
-(global-set-key (kbd "s-m") 'flycheck-next-error)
+(global-set-key (kbd "s-n") 'flycheck-next-error)
+(global-set-key (kbd "s-m") 'flycheck-previous-error)
 
 ;; Turn on projectile everywhere
 (use-package projectile)
