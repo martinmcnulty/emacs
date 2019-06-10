@@ -29,6 +29,9 @@
 ;; modes
 (electric-indent-mode 0)
 
+;; small font - value is in 1/10th of a pt, so 100 gives you 10pt
+(set-face-attribute 'default nil :height 110)
+
 ;; global keybindings
 (global-unset-key (kbd "C-z"))
 
