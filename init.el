@@ -20,6 +20,10 @@
 ;; Hopefully this will mean ENSIME can find sbt (needs to happen before we load ENSIME)
 (add-to-list 'exec-path "/usr/local/bin")
 
+;; Custom packages culled from the internet
+(add-to-list 'load-path "~/.emacs.d/snippets/")
+(require 'fira-code-mode)
+
 ;; buffer local variables
 (setq-default
  indent-tabs-mode nil
@@ -247,6 +251,9 @@
 
 ;; Make M-f and M-b camel-case aware
 (add-hook 'scala-mode-hook 'subword-mode)
+
+;; Use nice ligatures in scala-mode
+(add-hook 'scala-mode-hook 'fira-code-mode)
 
 ;; Make ? part of a word (to fix M-f over ??? identifiers)
 ;;(modify-syntax-entry ?\? "w" scala-mode-syntax-table)
