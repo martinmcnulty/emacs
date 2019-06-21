@@ -332,9 +332,31 @@
 
 (setq-default fill-column 127)
 
-(use-package fill-column-indicator
-  :after scala-mode
-  :hook (scala-mode . fci-mode))
+;;(use-package fill-column-indicator
+;;  :after scala-mode
+;;  :hook (scala-mode . fci-mode))
+
+(use-package company
+  :diminish company-mode
+  :commands company-mode
+  :init
+  (setq
+   company-dabbrev-ignore-case nil
+   company-dabbrev-code-ignore-case nil
+   company-dabbrev-downcase nil
+   company-idle-delay 0
+   company-minimum-prefix-length 4)
+  :config
+  ;; disables TAB in company-mode, freeing it for yasnippet
+  ;;(define-key company-active-map [tab] nil)
+  ;;(define-key company-active-map (kbd "TAB") nil)
+  )
+
+(use-package company-lsp
+  :demand t
+  :after lsp-scala
+  :config
+  (push 'company-lsp company-backends))
 
 ;;;; End metals/lsp-scala section
 
