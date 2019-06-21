@@ -95,7 +95,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package)))
+    (flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package)))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
@@ -302,7 +302,6 @@
 (global-set-key (kbd "C-x |") 'toggle-window-split)
 
 ;;;; Install lsp-scala for metals
-
 (use-package sbt-mode
   :commands sbt-start sbt-command
   :config
@@ -363,6 +362,20 @@
 (use-package elfeed)
 
 (use-package terraform-mode)
+
+(use-package flymd)
+
+;; Flymd doesn't like Chrome on Mac OS (because by default Chrome doesn't let it open local files or something?)
+;; See: https://github.com/mola-T/flymd/blob/master/browser.md#user-content-chrome-macos
+(defun flymd-open-firefox (url)
+  "Open URL in Firefox for flymd."
+  (let ((process-environment (browse-url-process-environment)))
+    (apply 'start-process
+           (concat "firefox " url)
+           nil
+           "/usr/bin/open"
+           (list "-a" "firefox" url))))
+(setq flymd-browser-open-function 'flymd-open-firefox)
 
 (provide 'init)
 ;;; init.el ends here
