@@ -318,7 +318,11 @@
 
 (use-package lsp-mode
  :pin melpa
- :init (setq lsp-prefer-flymake nil))
+ :init
+ (setq
+  lsp-prefer-flymake nil
+  lsp-enable-snippet nil)
+ )
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
