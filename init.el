@@ -95,7 +95,31 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package)))
+    (company-lsp
+     flymd
+     terraform-mode
+     fill-column-indicator
+     scala-mode
+     flycheck
+     sbt-mode
+     lsp-mode
+     lsp-scala
+     lsp-ui
+     elfeed
+     expand-region
+     csv-mode
+     popup-imenu
+     yaml-mode
+     markdown-mode
+     magit
+     multi-term
+     project-explorer
+     helm
+     projectile
+     exec-path-from-shell
+     monokai-theme
+     use-package)
+    ))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
