@@ -93,6 +93,7 @@
  '(js-indent-level 2)
  '(magit-diff-section-arguments (quote ("--no-ext-diff")))
  '(magit-diff-use-overlays nil)
+ '(magit-pull-arguments nil)
  '(package-selected-packages
    (quote
     (company-lsp
