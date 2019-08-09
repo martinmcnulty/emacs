@@ -203,6 +203,10 @@
 ;; Make it easier to switch buffers
 (global-set-key (kbd "M-]") 'next-buffer)
 (global-set-key (kbd "M-[") 'previous-buffer)
+
+;; Shortcut for toggling truncation
+(global-set-key (kbd "C-c t") 'toggle-truncate-lines)
+
 ;; Use Helm for M-x
 (use-package helm)
 (global-set-key (kbd "M-x") 'helm-M-x)
