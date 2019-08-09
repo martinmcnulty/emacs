@@ -125,6 +125,7 @@
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
+ '(sbt:program-options (quote ("-Djline.terminal=none" "-J-Xmx2g" "-mem" "2048")))
  '(term-bind-key-alist
    (quote
     (("C-c C-c" . term-interrupt-subjob)
