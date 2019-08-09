@@ -221,6 +221,7 @@
 ;; Shortcut key for magit
 (use-package magit)
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-c g") 'magit-file-popup)
 
 ;; Make sure Emacs' env vars are the same as you'd normally get in a shell
 ;; (relies on the exec-path-from-shell package)
