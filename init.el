@@ -399,6 +399,8 @@
 
 (use-package flymd)
 
+(use-package csv-mode)
+
 ;; Flymd doesn't like Chrome on Mac OS (because by default Chrome doesn't let it open local files or something?)
 ;; See: https://github.com/mola-T/flymd/blob/master/browser.md#user-content-chrome-macos
 (defun flymd-open-firefox (url)
