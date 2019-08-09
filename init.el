@@ -96,7 +96,8 @@
  '(magit-pull-arguments nil)
  '(package-selected-packages
    (quote
-    (company-lsp
+    (company
+     company-lsp
      flymd
      terraform-mode
      fill-column-indicator
@@ -119,7 +120,8 @@
      projectile
      exec-path-from-shell
      monokai-theme
-     use-package)
+     use-package
+     csv-mode)
     ))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
