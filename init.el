@@ -279,8 +279,14 @@
 (use-package scala-mode)
 
 ;; Remove trailing whitespace on save
-(add-hook 'scala-mode-hook
-          (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+(add-to-list 'write-file-functions 'delete-trailing-whitespace)
+
+(defun remove-from-list (lst elem)
+  "Remove ELEM from LST using equal comparison."
+  (let ((filtered (seq-filter (lambda (x) (not (equal elem x))) (symbol-value lst))))
+    (set lst filtered)))
+;; Execute this form to remove delete-trailing-whitespace from write-file-functions:
+;; (remove-from-list 'write-file-functions 'delete-trailing-whitespace)
 
 ;; Make M-f and M-b camel-case aware
 (add-hook 'scala-mode-hook 'subword-mode)
