@@ -99,33 +99,7 @@
  '(magit-pull-arguments nil)
  '(package-selected-packages
    (quote
-    (company
-     company-lsp
-     flymd
-     terraform-mode
-     fill-column-indicator
-     scala-mode
-     flycheck
-     sbt-mode
-     lsp-mode
-     lsp-scala
-     lsp-ui
-     elfeed
-     expand-region
-     csv-mode
-     popup-imenu
-     yaml-mode
-     markdown-mode
-     magit
-     multi-term
-     project-explorer
-     helm
-     projectile
-     exec-path-from-shell
-     monokai-theme
-     use-package
-     csv-mode)
-    ))
+    (typescript-mode company company-lsp flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package csv-mode csharp-mode prettier-js web-mode)))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
@@ -281,6 +255,8 @@
 ;; Use scala-mode
 (use-package scala-mode)
 
+(use-package prettier-js)
+
 ;; Remove trailing whitespace on save
 (add-to-list 'write-file-functions 'delete-trailing-whitespace)
 
@@ -293,6 +269,7 @@
 
 ;; Make M-f and M-b camel-case aware
 (add-hook 'scala-mode-hook 'subword-mode)
+(add-hook 'web-mode-hook 'subword-mode)
 
 ;; Use nice ligatures in scala-mode
 (add-hook 'scala-mode-hook 'fira-code-mode)
@@ -413,6 +390,8 @@
 
 (use-package csv-mode)
 
+(use-package typescript-mode)
+
 ;; Flymd doesn't like Chrome on Mac OS (because by default Chrome doesn't let it open local files or something?)
 ;; See: https://github.com/mola-T/flymd/blob/master/browser.md#user-content-chrome-macos
 (defun flymd-open-firefox (url)
@@ -424,6 +403,53 @@
            "/usr/bin/open"
            (list "-a" "firefox" url))))
 (setq flymd-browser-open-function 'flymd-open-firefox)
+
+;; Use tide for Typescript/TSX files
+(defun setup-tide-mode ()
+  (interactive)
+  (message "%s" "Setting up Tide mode...")
+  (tide-setup)
+  (subword-mode +1)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1)
+  (prettier-js-mode)
+  (setq-default typescript-indent-level 2))
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+(use-package tide
+  :ensure t
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . setup-tide-mode)
+         (typescript-mode . tide-hl-identifier-mode)
+         ;;(before-save . tide-format-before-save)
+         ))
+
+(setq tide-format-options '(
+  :insertSpaceAfterFunctionKeywordForAnonymousFunctions t
+  :placeOpenBraceOnNewLineForFunctions nil
+  :indentSize 2
+))
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode))))
+;; Stop web-mode from reindenting things (wrongly!) on yank
+(setq web-mode-enable-auto-indentation nil)
+;; enable typescript-tslint checker
+(flycheck-add-mode 'typescript-tslint 'web-mode)
 
 (provide 'init)
 ;;; init.el ends here
