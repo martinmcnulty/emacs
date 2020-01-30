@@ -228,6 +228,12 @@
 (use-package projectile)
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(setq projectile-switch-project-action
+      (lambda ()
+        (when (file-exists-p "README.md") (find-file-existing "README.md"))
+        (delete-other-windows)
+        (project-explorer-open)))
+
 
 ;; Get better filename matching than Projectile's default (ido)
 ;;(use-package grizzl
