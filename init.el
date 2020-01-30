@@ -15,6 +15,8 @@
  use-package-always-ensure t
  use-package-always-defer t
  sentence-end-double-space nil
+ mac-option-modifier 'meta
+ mac-command-modifier 'super
 )
 
 ;; Hopefully this will mean ENSIME can find sbt (needs to happen before we load ENSIME)
