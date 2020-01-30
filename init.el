@@ -159,6 +159,8 @@
  ;; If there is more than one, they won't work right.
  )
 
+(use-package csharp-mode)
+
 ;; Make sure multi-term terminals are login shells because then they have the normal $PATH, etc
 (use-package multi-term)
 (setq multi-term-program-switches "--login")
