@@ -40,6 +40,7 @@
 
 ;; global keybindings
 (global-unset-key (kbd "C-z"))
+(global-set-key (kbd "s-u") (lambda () (interactive) (revert-buffer nil t t)))
 
 ;; the package manager
 (require 'package)
