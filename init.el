@@ -299,7 +299,7 @@
   (sbt-command "test:compile"))
 
 (global-set-key (kbd "C-c C-b c") 'sbt-compile)
-(global-set-key (kbd "C-c C-b s") 'sbt-switch-to-active-sbt-buffer)
+(global-set-key (kbd "C-c C-b s") 'sbt-start)
 
 (defun toggle-window-split ()
   "Toggle between horizontal and vertical window splits."
