@@ -338,7 +338,9 @@
   (substitute-key-definition
    'minibuffer-complete-word
    'self-insert-command
-   minibuffer-local-completion-map))
+   minibuffer-local-completion-map)
+  (setq sbt:program-options '("-Dsbt.supershell=false"))
+)
 
 ;; Enable nice rendering of diagnostics like compile errors.
 (use-package flycheck
