@@ -262,7 +262,8 @@
 (use-package yaml-mode)
 
 ;; Use scala-mode
-(use-package scala-mode)
+(use-package scala-mode
+  :mode "\\.s\\(cala\\|bt\\)$")
 
 (use-package prettier-js)
 
