@@ -463,6 +463,9 @@
 ;; enable typescript-tslint checker
 (flycheck-add-mode 'typescript-tslint 'web-mode)
 
+;; syntax highlighting for wsdl files
+(add-to-list 'auto-mode-alist '("\\.wsdl\\'" . sgml-mode))
+
 (provide 'init)
 ;;; init.el ends here
 (put 'upcase-region 'disabled nil)
