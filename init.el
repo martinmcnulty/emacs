@@ -100,7 +100,7 @@
  '(magit-pull-arguments nil)
  '(package-selected-packages
    (quote
-    (typescript-mode company company-lsp flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package csv-mode csharp-mode prettier-js web-mode)))
+    (lsp-metals typescript-mode company company-lsp flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package csv-mode csharp-mode prettier-js web-mode)))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
@@ -349,20 +349,17 @@
 
 (use-package lsp-mode
  :pin melpa
- :init
- (setq
-  lsp-prefer-flymake nil
-  lsp-enable-snippet nil)
- )
+ :hook (scala-mode . lsp)
+       (lsp-mode . lsp-lens-mode)
+
+ :config (setq lsp-prefer-flymake nil)
+         (setq lsp-enable-snippet nil))
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
 
-(use-package lsp-scala
-  :after scala-mode
-  :demand t
-  ;; Optional - enable lsp-scala automatically in scala files
-  :hook (scala-mode . lsp))
+;; Add metals backend for lsp-mode
+(use-package lsp-metals)
 
 (setq-default fill-column 127)
 
