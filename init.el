@@ -182,6 +182,11 @@
 (use-package monokai-theme)
 (load-theme 'monokai t)
 
+;; Use left Windows key as super
+(if (string-equal system-type "windows-nt")
+    (setq w32-pass-lwindow-to-system nil
+          w32-lwindow-modifier 'super))
+
 ;; Make it easier to switch buffers
 (global-set-key (kbd "M-]") 'next-buffer)
 (global-set-key (kbd "M-[") 'previous-buffer)
