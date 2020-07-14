@@ -166,6 +166,10 @@
 (use-package multi-term)
 (setq multi-term-program-switches "--login")
 
+;; Use bash for M-x shell when on Windows
+(if (string-equal system-type "windows-nt")
+    (setq explicit-shell-file-name "C:/Users/mmcnulty/AppData/Local/Programs/Git/bin/bash.exe"
+          explicit-bash.exe-args '("--login" "-i")))
 
 ;; Don't show the toolbar or scroll bar
 (tool-bar-mode -1)
