@@ -19,6 +19,10 @@
  mac-command-modifier 'super
 )
 
+;; Use Fira Code as default font
+(set-face-attribute 'default nil :font "Fira Code Regular")
+(set-frame-font "Fira Code Regular" nil t)
+
 ;; Hopefully this will mean ENSIME can find sbt (needs to happen before we load ENSIME)
 (add-to-list 'exec-path "/usr/local/bin")
 
@@ -36,7 +40,7 @@
 (electric-indent-mode 0)
 
 ;; small font - value is in 1/10th of a pt, so 100 gives you 10pt
-(set-face-attribute 'default nil :height 110)
+(set-face-attribute 'default nil :height 100)
 
 ;; global keybindings
 (global-unset-key (kbd "C-z"))
