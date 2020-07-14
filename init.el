@@ -42,6 +42,13 @@
 ;; small font - value is in 1/10th of a pt, so 100 gives you 10pt
 (set-face-attribute 'default nil :height 100)
 
+;; Smoother, slower mouse scrolling
+(setq mouse-wheel-scroll-amount '(0.02))
+(setq mouse-wheel-progressive-speed nil)
+
+;; Stop bloody dinging all the time
+(setq ring-bell-function 'ignore)
+
 ;; global keybindings
 (global-unset-key (kbd "C-z"))
 (global-set-key (kbd "s-u") (lambda () (interactive) (revert-buffer nil t t)))
