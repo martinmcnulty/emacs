@@ -111,7 +111,7 @@
  '(magit-pull-arguments nil)
  '(package-selected-packages
    (quote
-    (lsp-metals typescript-mode company company-lsp flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package csv-mode csharp-mode prettier-js web-mode)))
+    (sql-mode sql-indent ag kotlin-mode lsp-java lsp-metals typescript-mode company company-lsp flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package csv-mode csharp-mode prettier-js web-mode)))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
@@ -483,6 +483,21 @@
 ;; syntax highlighting for wsdl files
 (add-to-list 'auto-mode-alist '("\\.wsdl\\'" . sgml-mode))
 
+;; Java IDE features
+(use-package lsp-java)
+(add-hook 'java-mode-hook #'lsp)
+
+;; Kotlin?
+(use-package kotlin-mode)
+
+;; The silver searcher
+(use-package ag)
+
+;; sql-indent
+(use-package sql-indent)
+(add-to-list 'auto-mode-alist '("\\.elsql\\'" . sql-mode))
+
+(put 'upcase-region 'disabled nil)
+
 (provide 'init)
 ;;; init.el ends here
-(put 'upcase-region 'disabled nil)
