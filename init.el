@@ -51,7 +51,7 @@
 
 ;; global keybindings
 (global-unset-key (kbd "C-z"))
-(global-set-key (kbd "s-u") (lambda () (interactive) (revert-buffer nil t t)))
+(global-set-key (kbd "C-s-u") (lambda () (interactive) (revert-buffer nil t t)))
 
 ;; the package manager
 (require 'package)
@@ -240,10 +240,10 @@
 (global-set-key (kbd "s-[") 'mhm-prev-window)
 
 ;; Helpful error navigation
-(global-set-key (kbd "s-,") 'previous-error)
-(global-set-key (kbd "s-.") 'next-error)
-(global-set-key (kbd "s-n") 'flycheck-next-error)
-(global-set-key (kbd "s-m") 'flycheck-previous-error)
+(global-set-key (kbd "C-s-,") 'previous-error)
+(global-set-key (kbd "C-s-.") 'next-error)
+(global-set-key (kbd "s->") 'flycheck-next-error)
+(global-set-key (kbd "s-<") 'flycheck-previous-error)
 
 ;; Turn on projectile everywhere
 (use-package projectile)
@@ -365,7 +365,8 @@
 
 ;; Enable nice rendering of diagnostics like compile errors.
 (use-package flycheck
-  :init (global-flycheck-mode))
+  :init (global-flycheck-mode)
+  :config (setq flycheck-standard-error-navigation nil))
 
 (use-package lsp-mode
  :pin melpa
