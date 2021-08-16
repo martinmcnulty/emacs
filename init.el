@@ -112,7 +112,7 @@
  '(magit-pull-arguments nil)
  '(package-selected-packages
    (quote
-    (sql-mode sql-indent ag kotlin-mode lsp-java lsp-metals typescript-mode company company-lsp flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package csv-mode csharp-mode prettier-js web-mode)))
+    (tide sql-mode sql-indent ag kotlin-mode lsp-java lsp-metals typescript-mode company company-lsp flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package csv-mode csharp-mode prettier-js web-mode)))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
