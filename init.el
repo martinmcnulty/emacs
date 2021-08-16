@@ -252,7 +252,9 @@
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (setq projectile-switch-project-action
       (lambda ()
-        (when (file-exists-p "README.md") (find-file-existing "README.md"))
+        (cond
+         ((file-exists-p "README.md") (find-file-existing "README.md"))
+         ((file-exists-p "pom.xml") (find-file-existing "pom.xml")))
         (delete-other-windows)
         (project-explorer-open)))
 
