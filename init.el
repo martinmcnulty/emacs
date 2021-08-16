@@ -70,7 +70,8 @@
 
 ;; Toggle tree view
 (use-package project-explorer)
-(global-set-key (kbd "<C-tab>") 'project-explorer-toggle)
+;; (global-set-key (kbd "<C-tab>") 'project-explorer-toggle) - dunno why this won't work in WSL/Extraterm
+(global-set-key (kbd "M-9") 'project-explorer-toggle)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -203,8 +204,8 @@
           w32-lwindow-modifier 'super))
 
 ;; Make it easier to switch buffers
-(global-set-key (kbd "M-]") 'next-buffer)
-(global-set-key (kbd "M-[") 'previous-buffer)
+(global-set-key (kbd "M-k") 'next-buffer)
+(global-set-key (kbd "M-j") 'previous-buffer)
 
 ;; Shortcut for toggling truncation
 (global-set-key (kbd "C-c t") 'toggle-truncate-lines)
@@ -232,12 +233,12 @@
   (exec-path-from-shell-initialize))
 
 ;; Make it easy to switch windows
-(global-set-key (kbd "s-]") 'other-window)
+(global-set-key (kbd "M-N") 'other-window)
 (defun mhm-prev-window ()
   "Call 'other-window' with negative arg to move in opposite direction."
   (interactive)
   (other-window -1))
-(global-set-key (kbd "s-[") 'mhm-prev-window)
+(global-set-key (kbd "M-P") 'mhm-prev-window)
 
 ;; Helpful error navigation
 (global-set-key (kbd "C-s-,") 'previous-error)
