@@ -184,8 +184,9 @@
           explicit-bash.exe-args '("--login" "-i")))
 
 ;; Don't show the toolbar or scroll bar
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+(when (display-graphic-p)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1))
 
 ;; A few other customisations suggested on the ENSIME page
 (setq
