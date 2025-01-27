@@ -112,7 +112,7 @@
  '(magit-pull-arguments nil)
  '(package-selected-packages
    (quote
-    (tide sql-mode sql-indent ag kotlin-mode lsp-java lsp-metals typescript-mode company flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package csv-mode csharp-mode prettier-js web-mode)))
+    (groovy-mode dockerfile-mode go-mode tide sql-mode sql-indent ag kotlin-mode lsp-java lsp-metals typescript-mode company flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package csv-mode csharp-mode prettier-js web-mode)))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
@@ -498,6 +498,12 @@
 (add-to-list 'auto-mode-alist '("\\.elsql\\'" . sql-mode))
 
 (put 'upcase-region 'disabled nil)
+
+(use-package go-mode)
+
+(use-package dockerfile-mode)
+
+(use-package groovy-mode)
 
 (provide 'init)
 ;;; init.el ends here
