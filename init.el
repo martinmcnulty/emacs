@@ -114,7 +114,7 @@
    (quote
     (groovy-mode dockerfile-mode go-mode tide sql-mode sql-indent ag kotlin-mode lsp-java lsp-metals typescript-mode company flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package csv-mode csharp-mode prettier-js web-mode)))
  '(pe/omit-gitignore t)
- '(pe/omit-regex "^\\.git\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
+ '(pe/omit-regex "^\\.git$\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(sbt:program-options (quote ("-Djline.terminal=none" "-J-Xmx2g" "-mem" "2048")))
