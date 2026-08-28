@@ -1,4 +1,4 @@
-;;; init.el --- Martin's init file
+;;; init.el --- Martin's init file  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 
