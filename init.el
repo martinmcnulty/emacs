@@ -110,9 +110,10 @@
  '(magit-diff-use-overlays nil)
  '(magit-pull-arguments nil)
  '(package-selected-packages
-   '(ag company csharp-mode csv-mode dockerfile-mode elfeed exec-path-from-shell expand-region flymd go-mode groovy-mode helm jira
-        kotlin-mode lsp-java lsp-ui magit monokai-theme multi-term popup-imenu prettier-js project-explorer projectile
-        rust-mode sbt-mode scala-mode sql-indent terraform-mode tide typescript-mode use-package web-mode yaml-mode))
+   '(ag company csharp-mode csv-mode dockerfile-mode elfeed exec-path-from-shell expand-region flymd go-mode groovy-mode helm
+        helm-projectile jira kotlin-mode lsp-java lsp-ui magit monokai-theme multi-term popup-imenu prettier-js
+        project-explorer projectile rust-mode sbt-mode scala-mode sql-indent terraform-mode tide typescript-mode use-package
+        web-mode yaml-mode))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git$\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
@@ -230,6 +231,9 @@
         (delete-other-windows)
         (project-explorer-open)))
 
+;; Use helm for projectile completions
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 
 ;; Get better filename matching than Projectile's default (ido)
 ;;(use-package grizzl
