@@ -479,5 +479,17 @@
 
 (use-package groovy-mode)
 
+(use-package rust-mode)
+(add-hook 'rust-mode-hook 'eglot-ensure)
+
+;; Make eglot use nightly version of rust-analyzer
+(with-eval-after-load 'eglot
+   (add-to-list 'eglot-server-programs
+                '(rust-mode . ("rustup" "run" "nightly" "rust-analyzer"))))
+
+;; Make flycheck's rust syntax checker use nightly as well
+(setq flycheck-rust-cargo-executable
+        (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo"))
+
 (provide 'init)
 ;;; init.el ends here
