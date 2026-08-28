@@ -167,6 +167,7 @@
 
 ;; Let's try out this monokai theme
 (use-package monokai-theme)
+;; Need to apply this change manually for recent emacs versions: https://github.com/oneKelvinSmith/monokai-emacs/pull/120/files
 (load-theme 'monokai t)
 
 ;; Use left Windows key as super
