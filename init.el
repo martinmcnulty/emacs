@@ -83,91 +83,58 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#272822" "#F92672" "#A6E22E" "#E6DB74" "#66D9EF" "#FD5FF0" "#A1EFE4" "#F8F8F2"])
- '(compilation-message-face (quote default))
+ '(compilation-message-face 'default)
  '(custom-safe-themes
-   (quote
-    ("69831e572dc46ced47c5309bff8fc2f4a9e237e2bad2c76f313da814a4628694" default)))
+   '("69831e572dc46ced47c5309bff8fc2f4a9e237e2bad2c76f313da814a4628694" default))
  '(elfeed-feeds
-   (quote
-    ("https://eev.ee/feeds/blog.atom.xml" "https://danluu.com/atom.xml" "https://daringfireball.net/feeds/main" "https://www.jwz.org/blog/feed/")))
+   '("https://eev.ee/feeds/blog.atom.xml" "https://danluu.com/atom.xml" "https://daringfireball.net/feeds/main"
+     "https://www.jwz.org/blog/feed/"))
  '(fci-rule-color "#3C3D37")
  '(grep-find-ignored-directories
-   (quote
-    ("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "target" ".ensime_cache" ".ensime_snapshot" "node_modules" "dist" ".sass-cache" "build" ".terraform" ".metals" ".bloop" "coverage" ".jest" ".cache" "venv")))
+   '("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "target" ".ensime_cache"
+     ".ensime_snapshot" "node_modules" "dist" ".sass-cache" "build" ".terraform" ".metals" ".bloop" "coverage" ".jest" ".cache"
+     "venv"))
  '(grep-find-ignored-files
-   (quote
-    (".#*" "*.o" "*~" "*.bin" "*.lbin" "*.so" "*.a" "*.ln" "*.blg" "*.bbl" "*.elc" "*.lof" "*.glo" "*.idx" "*.lot" "*.fmt" "*.tfm" "*.class" "*.fas" "*.lib" "*.mem" "*.x86f" "*.sparcf" "*.dfsl" "*.pfsl" "*.d64fsl" "*.p64fsl" "*.lx64fsl" "*.lx32fsl" "*.dx64fsl" "*.dx32fsl" "*.fx64fsl" "*.fx32fsl" "*.sx64fsl" "*.sx32fsl" "*.wx64fsl" "*.wx32fsl" "*.fasl" "*.ufsl" "*.fsl" "*.dxl" "*.lo" "*.la" "*.gmo" "*.mo" "*.toc" "*.aux" "*.cp" "*.fn" "*.ky" "*.pg" "*.tp" "*.vr" "*.cps" "*.fns" "*.kys" "*.pgs" "*.tps" "*.vrs" "*.pyc" "*.pyo" ".ensime" "*.min.css" "*.min.css.map" "*.bundle.js" "*.iml")))
- '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
+   '(".#*" "*.o" "*~" "*.bin" "*.lbin" "*.so" "*.a" "*.ln" "*.blg" "*.bbl" "*.elc" "*.lof" "*.glo" "*.idx" "*.lot" "*.fmt" "*.tfm"
+     "*.class" "*.fas" "*.lib" "*.mem" "*.x86f" "*.sparcf" "*.dfsl" "*.pfsl" "*.d64fsl" "*.p64fsl" "*.lx64fsl" "*.lx32fsl"
+     "*.dx64fsl" "*.dx32fsl" "*.fx64fsl" "*.fx32fsl" "*.sx64fsl" "*.sx32fsl" "*.wx64fsl" "*.wx32fsl" "*.fasl" "*.ufsl" "*.fsl"
+     "*.dxl" "*.lo" "*.la" "*.gmo" "*.mo" "*.toc" "*.aux" "*.cp" "*.fn" "*.ky" "*.pg" "*.tp" "*.vr" "*.cps" "*.fns" "*.kys"
+     "*.pgs" "*.tps" "*.vrs" "*.pyc" "*.pyo" ".ensime" "*.min.css" "*.min.css.map" "*.bundle.js" "*.iml"))
+ '(highlight-changes-colors '("#FD5FF0" "#AE81FF"))
  '(highlight-tail-colors
-   (quote
-    (("#3C3D37" . 0)
-     ("#679A01" . 20)
-     ("#4BBEAE" . 30)
-     ("#1DB4D0" . 50)
-     ("#9A8F21" . 60)
-     ("#A75B00" . 70)
-     ("#F309DF" . 85)
-     ("#3C3D37" . 100))))
+   '(("#3C3D37" . 0) ("#679A01" . 20) ("#4BBEAE" . 30) ("#1DB4D0" . 50) ("#9A8F21" . 60) ("#A75B00" . 70) ("#F309DF" . 85)
+     ("#3C3D37" . 100)))
  '(js-indent-level 2)
- '(magit-diff-arguments (quote ("--stat")))
- '(magit-diff-refine-hunk (quote all))
+ '(magit-diff-arguments '("--stat"))
+ '(magit-diff-refine-hunk 'all)
  '(magit-diff-use-overlays nil)
  '(magit-pull-arguments nil)
  '(package-selected-packages
-   (quote
-    (groovy-mode dockerfile-mode go-mode tide sql-mode sql-indent ag kotlin-mode lsp-java lsp-metals typescript-mode company flymd terraform-mode fill-column-indicator scala-mode flycheck sbt-mode lsp-mode lsp-scala lsp-ui elfeed expand-region csv-mode popup-imenu yaml-mode markdown-mode magit multi-term project-explorer helm projectile exec-path-from-shell monokai-theme use-package csv-mode csharp-mode prettier-js web-mode)))
+   '(ag company csharp-mode csv-mode dockerfile-mode elfeed exec-path-from-shell expand-region flymd go-mode groovy-mode helm jira
+        kotlin-mode lsp-java lsp-ui magit monokai-theme multi-term popup-imenu prettier-js project-explorer projectile
+        rust-mode sbt-mode scala-mode sql-indent terraform-mode tide typescript-mode use-package web-mode yaml-mode))
  '(pe/omit-gitignore t)
  '(pe/omit-regex "^\\.git$\\|^#\\|~$\\|^node_modules$\\|\\.ensime_snapshot")
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
- '(sbt:program-options (quote ("-Djline.terminal=none" "-J-Xmx2g" "-mem" "2048")))
+ '(sbt:program-options '("-Djline.terminal=none" "-J-Xmx2g" "-mem" "2048"))
  '(term-bind-key-alist
-   (quote
-    (("C-c C-c" . term-interrupt-subjob)
-     ("C-c C-e" . term-send-esc)
-     ("C-p" . previous-line)
-     ("C-n" . next-line)
-     ("C-s" . isearch-forward)
-     ("C-r" . isearch-backward)
-     ("C-m" . term-send-return)
-     ("C-y" . term-paste)
-     ("M-f" . term-send-forward-word)
-     ("M-b" . term-send-backward-word)
-     ("M-o" . term-send-backspace)
-     ("M-p" . term-send-up)
-     ("M-n" . term-send-down)
-     ("M-M" . term-send-forward-kill-word)
-     ("M-N" . term-send-backward-kill-word)
-     ("<C-backspace>" . term-send-backward-kill-word)
-     ("M-r" . term-send-reverse-search-history)
-     ("M-d" . term-send-delete-word)
-     ("M-," . term-send-raw)
-     ("M-." . comint-dynamic-complete)
-     ("<M-backspace>" . term-send-backward-kill-word))))
+   '(("C-c C-c" . term-interrupt-subjob) ("C-c C-e" . term-send-esc) ("C-p" . previous-line) ("C-n" . next-line)
+     ("C-s" . isearch-forward) ("C-r" . isearch-backward) ("C-m" . term-send-return) ("C-y" . term-paste)
+     ("M-f" . term-send-forward-word) ("M-b" . term-send-backward-word) ("M-o" . term-send-backspace) ("M-p" . term-send-up)
+     ("M-n" . term-send-down) ("M-M" . term-send-forward-kill-word) ("M-N" . term-send-backward-kill-word)
+     ("<C-backspace>" . term-send-backward-kill-word) ("M-r" . term-send-reverse-search-history)
+     ("M-d" . term-send-delete-word) ("M-," . term-send-raw) ("M-." . comint-dynamic-complete)
+     ("<M-backspace>" . term-send-backward-kill-word)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#F92672")
-     (40 . "#CF4F1F")
-     (60 . "#C26C0F")
-     (80 . "#E6DB74")
-     (100 . "#AB8C00")
-     (120 . "#A18F00")
-     (140 . "#989200")
-     (160 . "#8E9500")
-     (180 . "#A6E22E")
-     (200 . "#729A1E")
-     (220 . "#609C3C")
-     (240 . "#4E9D5B")
-     (260 . "#3C9F79")
-     (280 . "#A1EFE4")
-     (300 . "#299BA6")
-     (320 . "#2896B5")
-     (340 . "#2790C3")
-     (360 . "#66D9EF"))))
+   '((20 . "#F92672") (40 . "#CF4F1F") (60 . "#C26C0F") (80 . "#E6DB74") (100 . "#AB8C00") (120 . "#A18F00") (140 . "#989200")
+     (160 . "#8E9500") (180 . "#A6E22E") (200 . "#729A1E") (220 . "#609C3C") (240 . "#4E9D5B") (260 . "#3C9F79")
+     (280 . "#A1EFE4") (300 . "#299BA6") (320 . "#2896B5") (340 . "#2790C3") (360 . "#66D9EF")))
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
-   (unspecified "#272822" "#3C3D37" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
+   (unspecified "#272822" "#3C3D37" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA"
+                "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
