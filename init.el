@@ -53,6 +53,9 @@
 (global-unset-key (kbd "C-z"))
 (global-set-key (kbd "C-s-u") (lambda () (interactive) (revert-buffer nil t t)))
 
+;; WSL copy to clipboard
+(global-set-key (kbd "M-W") (lambda () (interactive) (shell-command-on-region (region-beginning) (region-end) "clip.exe")))
+
 ;; the package manager
 (require 'package)
 (setq
