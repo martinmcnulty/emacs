@@ -479,6 +479,20 @@
 
 (use-package groovy-mode)
 
+(use-package jira
+  :config
+  (setq jira-base-url "https://lmrpartners.atlassian.net") ;; Jira instance URL
+  (setq jira-username "martin.mcnulty@lmrpartners..com") ;; Jira username (usually, an email)
+  ;; API token for Jira
+  ;; See https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/
+  (setq jira-token "ATATT3xFfGF0LvOpqU5XVjTEE17Ly6q8ztaZcA4r4v5QOjTcFrVV4iV7Adgi_Y1u9zJSkdSuBaEAIIv9W9ghglTxy3q4smcknW-30TIK3a6wGx43K46jGrzcLicljFJr8r9u0DvGaxBQ96MGv5ZWF6-azeVmbRL-OJg3ZGuUTjXwl6FY5FriBLI=C7FDC080")
+  (setq jira-token-is-personal-access-token nil)
+  (setq jira-api-version 3) ;; Version 2 is also allowed
+  ;; (Optional) API token for JIRA TEMPO plugin
+  ;; See https://apidocs.tempo.io/
+  ;;(setq jira-tempo-token "foobar123123")
+)
+
 (use-package rust-mode)
 (add-hook 'rust-mode-hook 'eglot-ensure)
 
