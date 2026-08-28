@@ -357,7 +357,7 @@
   :hook (lsp-mode . lsp-ui-mode))
 
 ;; Add metals backend for lsp-mode
-(use-package lsp-metals)
+;;(use-package lsp-metals)
 
 (setq-default fill-column 127)
 
@@ -451,7 +451,7 @@
 ;; Stop web-mode from reindenting things (wrongly!) on yank
 (setq web-mode-enable-auto-indentation nil)
 ;; enable typescript-tslint checker
-(flycheck-add-mode 'typescript-tslint 'web-mode)
+;;(flycheck-add-mode 'typescript-tslint 'web-mode)
 
 ;; syntax highlighting for wsdl files
 (add-to-list 'auto-mode-alist '("\\.wsdl\\'" . sgml-mode))
