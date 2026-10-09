@@ -233,6 +233,9 @@
 
 ;; Use helm for projectile completions
 (setq projectile-completion-system 'helm)
+;; helm-projectile 1.7.0's default 'projectile strategy calls
+;; `projectile-ignored-files-rel', which was removed in projectile 3.4.0
+(setq helm-projectile-ignore-strategy 'search-tool)
 (helm-projectile-on)
 
 ;; Get better filename matching than Projectile's default (ido)
